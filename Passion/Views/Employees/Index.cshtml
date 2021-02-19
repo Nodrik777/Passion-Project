@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Passion.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Species.SpeciesClass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeFName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeLName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeHireDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeBio)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Species.SpeciesClass)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeFName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeLName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeHireDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeBio)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+        </td>
+    </tr>
+}
+
+</table>
